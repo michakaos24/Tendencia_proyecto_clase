@@ -1,7 +1,7 @@
 import { DataSource } from 'typeorm';
 import { ConfigType } from '@nestjs/config';
-import { DataSourceEnum } from '@shared/enums';
-import { config } from '@config';
+import { DataSourceEnum } from 'src/shared/enums';
+import { config } from 'src/config/config';
 
 export const databaseProviders = [
   {
@@ -17,12 +17,8 @@ export const databaseProviders = [
         username,
         password,
         database,
-        entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-        // entities: [User, StudentEntity, CatalogueEntity],
-        // migrations: ['src/database/migrations/*.ts'],
-        // migrationsTableName: 'migrations',
+        entities: [__dirname + '/../**/*.entity{.ts,.js}'], // entities: [User, StudentEntity, CatalogueEntity], // migrations: ['src/database/migrations/*.ts'], // migrationsTableName: 'migrations',
         dropSchema: true,
-        
         synchronize: true,
       });
 

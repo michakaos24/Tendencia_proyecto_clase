@@ -1,10 +1,6 @@
+import { DataSourceEnum, RepositoryEnum } from 'src/shared/enums';
 import { DataSource } from 'typeorm';
-import {
-  ProductEntity,
-  
-} from '@ventas/entities';
-
-import { DataSourceEnum, RepositoryEnum } from '@shared/enums';
+import { ProductEntity } from '../entities';
 
 export const ventasProviders = [
   {
@@ -13,4 +9,10 @@ export const ventasProviders = [
       dataSource.getRepository(ProductEntity),
     inject: [DataSourceEnum.PG_DATA_SOURCE],
   },
-]
+  /*{
+    provide: RepositoryEnum.PLANNING_REPOSITORY,
+    useFactory: (dataSource: DataSource) =>
+      dataSource.getRepository(PlanningEntity),
+    inject: [DataSourceEnum.PG_DATA_SOURCE],
+  },*/
+];
